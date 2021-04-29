@@ -36,6 +36,10 @@ class SelfieListViewController: UIViewController, UICollectionViewDelegate, UICo
             pickerController.sourceType = .photoLibrary
         }
 
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            pickerController.popoverPresentationController?.sourceView = self.takeSelfieButton
+        }
+
         self.navigationController?.present(pickerController, animated: true, completion: nil)
     }
 

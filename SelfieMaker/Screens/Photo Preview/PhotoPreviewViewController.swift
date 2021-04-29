@@ -37,7 +37,11 @@ class PhotoPreviewViewController: UIViewController, UIScrollViewDelegate {
 
     @IBAction func shareTapped(_ sender: Any) {
         guard let image = self.imageView.image else { return }
+        guard let barButton = sender as? UIBarButtonItem else { return }
         let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            vc.popoverPresentationController?.barButtonItem = barButton
+        }
         self.present(vc, animated: true)
     }
 }
