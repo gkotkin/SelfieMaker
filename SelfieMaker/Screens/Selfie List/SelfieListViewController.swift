@@ -18,6 +18,8 @@ class SelfieListViewController: UIViewController, UICollectionViewDelegate, UICo
         self.photoStorage = PhotoStorage()
 
         self.collectionView.register(UINib(nibName: SelfieCollectionCell.reuseId, bundle: nil), forCellWithReuseIdentifier: SelfieCollectionCell.reuseId)
+
+        self.takeSelfieButton.layer.cornerRadius = self.takeSelfieButton.bounds.height / 2.0
     }
 
     @IBAction func takeSelfieTapped(_ sender: Any) {
